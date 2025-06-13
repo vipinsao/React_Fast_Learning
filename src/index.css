@@ -1,20 +1,39 @@
+/* body {
+  margin: 0;
+  padding: 0;
+} */
+@import "tailwindcss";
 .navbar {
   border-bottom: 2px solid black;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  /* border-radius: 10px; */
+  align-items: center; /* add this for vertical alignment */
+  width: 100%;
+  padding: 1px 20px; /* add padding to avoid items touching edge */
+  box-sizing: border-box;
 }
 #navbar-head {
-  font-size: larger;
-  padding-left: 10px;
+  font-size: 25px;
+  padding-left: 2px;
 }
 
 .menu_items {
   display: flex;
-  gap: 30px;
-  margin-right: 10px;
+  gap: 10px;
   list-style-type: none;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-btn {
+  border-radius: 3px;
+  padding: 2px 5px;
+  cursor: pointer;
 }
 
 .product_card {
@@ -35,16 +54,24 @@
   display: flex;
   flex-wrap: wrap;
   width: 160px;
+  cursor: pointer;
 }
+
+.product_details:hover {
+  scale: 1.04;
+  transition: ease-in-out;
+  box-shadow: rgb(166, 166, 166);
+}
+
 .products {
   padding: 20px;
-  display: flex;
   background: rgb(225, 215, 215);
-  flex-direction: column;
-  justify-content: center;
+
   align-items: center;
   border: 1px solid black;
   border-radius: 10px;
+  text-decoration: none;
+  color: black;
 }
 
 #product-btn {
@@ -60,4 +87,51 @@
   background-color: rgb(227, 198, 219);
   scale: 1.02;
   transition: ease-in-out;
+}
+
+.Skeleton-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Skeleton {
+  margin: 8px;
+  width: 170px;
+  height: 400px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+.search-bar {
+  margin-top: 10px;
+  gap: 5px;
+}
+
+.input-field {
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  width: 300px;
+}
+
+.search-btn {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.product_detail {
+  display: flex;
+  flex-wrap: wrap;
+  width: 160px;
+  margin-top: 20px;
+}
+
+.product {
+  margin-top: 10px;
+  padding: 20px;
+  background: rgb(225, 215, 215);
+
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
 }

@@ -1,11 +1,14 @@
+import { Link, useNavigate } from "react-router";
+
 //we received the props
 const Product = ({ product_item }) => {
   // const product_list = props.product_item;
   // console.log(props);
   // console.log(product_item);
+  const navigate = useNavigate();
   const { id, image, title, price, rating } = product_item;
   return (
-    <div className="product_details">
+    <div className="product_details ">
       {/* 1 way  {product_item.map((item, ind) => (
         <div key={ind} className="products">
           <img src={item.img_url} alt="product 1" className="prd_img" />
@@ -15,12 +18,17 @@ const Product = ({ product_item }) => {
         </div>
       ))} */}
       {/* 2 way */}
-      <div key={id} className="products">
+      <Link
+        to={`/product/${id}`}
+        key={id}
+        className="products"
+        // onClick={() => navigate(`/product/${id}`)}
+      >
         <img src={image} alt={title} className="prd_img" />
         <h3>{title}</h3>
         <h4>Price - {price} $</h4>
         <p>Rating - {rating.rate}</p>
-      </div>
+      </Link>
     </div>
   );
 };
@@ -32,3 +40,19 @@ export default Product;
 //thats call (named export)
 //Named export is used when we have to export
 //multiple components from one file
+
+//we are creating HOC(higher order component) which will
+//enhance our ui and add bestseller sticker
+//in some cards
+export const HOC = (Product) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <span className="absolute -left-2 -top-2 bg-black text-white px-3 py-0 rounded-md">
+          BestSeller
+        </span>
+        <Product {...props} />
+      </div>
+    );
+  };
+};
